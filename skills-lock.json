@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "skills": {
+    "api-design-principles": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "skillPath": "plugins/backend-development/skills/api-design-principles/SKILL.md",
+      "computedHash": "a91429c25bb978f99f5da8d8752b8ae87ece51abcb24acb3953a5b1662c9bd5c"
+    },
+    "core": {
+      "source": "tanstack/table",
+      "sourceType": "github",
+      "skillPath": "packages/table-core/skills/core/SKILL.md",
+      "computedHash": "c5795c4fd97d628a183a3ae9ff79e0fd4087269ca064ba7f606a4fcbb6356e97"
+    },
+    "crm-autopilot": {
+      "source": "anthropics/knowledge-work-plugins",
+      "sourceType": "github",
+      "skillPath": "small-business/skills/crm-autopilot/SKILL.md",
+      "computedHash": "a84e5327d452c39e39d62d5af30547f96007790e47bec060ba6d81acdd3815f6"
+    },
+    "data-visualization-mastery": {
+      "source": "phazurlabs/sumi",
+      "sourceType": "github",
+      "skillPath": "skills/data-visualization-mastery/SKILL.md",
+      "computedHash": "8887f1a56606915cf06550c5665d8bdf6762bb555f5c5eadaffb0fc2db55f859"
+    },
+    "database-design": {
+      "source": "vudovn/ag-kit",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/database-design/SKILL.md",
+      "computedHash": "8f9cd529ca3ad7043561ecdf730d199d4f3f19fc97f2ed1a6737b23176a0588d"
+    },
+    "turso-cloud": {
+      "source": "tursodatabase/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/turso-cloud/SKILL.md",
+      "computedHash": "da5f8b74d48f9e2dbb23a26fc69d19e34f942ac923f9122148f8cfd90e4bdffe"
+    },
+    "webapp-testing": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/webapp-testing/SKILL.md",
+      "computedHash": "3f14af7f5690695209c22fbf8c8d133769a86d64892602c09bb13f135e14e857"
+    }
+  }
+}

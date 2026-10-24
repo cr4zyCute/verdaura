@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FEATURED_PRODUCTS, BUSINESS_INFO } from '../../data/verdauraData';
 import { ProductItem } from '../../types/verdaura';
-import { Sparkles, Info, X, Phone, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Sparkles, Info, X, Phone, CheckCircle2, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface FeaturedProductsProps {
   selectedCategory: string;
@@ -10,17 +10,52 @@ interface FeaturedProductsProps {
 
 export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ selectedCategory }) => {
   const [activeProduct, setActiveProduct] = useState<ProductItem | null>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const displayedProducts =
     selectedCategory === 'all'
       ? FEATURED_PRODUCTS
       : FEATURED_PRODUCTS.filter((p) => p.category === selectedCategory);
 
+  const checkScroll = () => {
+    if (sliderRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+      setCanScrollLeft(scrollLeft > 10);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+      const maxScroll = scrollWidth - clientWidth;
+      if (maxScroll > 0) {
+        setScrollProgress((scrollLeft / maxScroll) * 100);
+      } else {
+        setScrollProgress(0);
+      }
+    }
+  };
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener('resize', checkScroll);
+    return () => window.removeEventListener('resize', checkScroll);
+  }, [displayedProducts]);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (sliderRef.current) {
+      const card = sliderRef.current.querySelector('.product-slider-item') as HTMLElement;
+      const scrollAmount = card ? card.offsetWidth + 16 : 300;
+      sliderRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <section id="featured" className="py-16 md:py-24 bg-[#FAF7F2] border-b border-sand-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6 sm:mb-12">
           <div className="space-y-2 max-w-xl">
             <span className="botanical-badge">
               <Sparkles className="w-3.5 h-3.5 text-sunflower-600" />
@@ -34,96 +69,170 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ selectedCate
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-between sm:justify-end gap-3">
             <span className="text-xs text-charcoal-500 font-medium">
               Showing {displayedProducts.length} of {FEATURED_PRODUCTS.length} formulations
             </span>
+
+            {/* Mobile slide arrow controls */}
+            <div className="flex sm:hidden items-center gap-1.5">
+              <button
+                onClick={() => scroll('left')}
+                disabled={!canScrollLeft}
+                className="w-8 h-8 rounded-full bg-white border border-sand-300 text-forest-900 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-all shadow-xs active:scale-95"
+                aria-label="Slide left to previous formulation"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                disabled={!canScrollRight}
+                className="w-8 h-8 rounded-full bg-[#3E4D3A] text-cream-50 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-all shadow-xs active:scale-95"
+                aria-label="Slide right to next formulation"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {displayedProducts.map((product) => (
-            <div
-              key={product.id}
-              className="botanical-card overflow-hidden flex flex-col group"
-            >
-              {/* Product Image Frame */}
-              <div className="relative aspect-[4/3] bg-sand-100 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                {product.badge && (
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-forest-900/90 backdrop-blur-sm text-cream-50 border border-forest-700/50 shadow-sm">
-                    {product.badge}
-                  </span>
-                )}
-                {product.price && (
-                  <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-bold bg-sunflower text-forest-950 shadow-sm">
-                    {product.price}
-                  </span>
-                )}
-              </div>
+        {/* Mobile Swipe Cue Banner */}
+        <div className="sm:hidden flex items-center justify-between pb-3 pt-0.5 text-xs text-charcoal-600">
+          <span className="inline-flex items-center gap-1.5 font-medium text-forest-900 bg-sand-200/80 px-2.5 py-1 rounded-full text-[11px]">
+            <span className="animate-pulse">👉</span>
+            <span>Swipe sideways to explore</span>
+          </span>
+          <span className="text-[11px] text-olive-800 font-semibold tracking-wide">
+            {canScrollRight ? 'More products →' : 'All viewed ✓'}
+          </span>
+        </div>
 
-              {/* Product Content */}
-              <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                <div className="space-y-2">
-                  <div className="text-[11px] uppercase tracking-wider text-olive-700 font-semibold">
-                    {product.category.replace('-', ' ')}
+        {/* Product Cards Container with Responsive Horizontal Slider on Mobile */}
+        <div className="relative">
+          {/* Subtle gradient edges on mobile to visually cue more cards to slide */}
+          <div
+            className={`absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-[#FAF7F2] via-[#FAF7F2]/85 to-transparent pointer-events-none z-10 sm:hidden transition-opacity duration-300 ${
+              canScrollRight ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+          <div
+            className={`absolute left-0 top-0 bottom-4 w-8 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/85 to-transparent pointer-events-none z-10 sm:hidden transition-opacity duration-300 ${
+              canScrollLeft ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+
+          <div
+            ref={sliderRef}
+            onScroll={checkScroll}
+            className="
+              flex overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 pt-1 gap-4.5
+              -mx-4 px-4 sm:mx-0 sm:px-0
+              sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-6
+              sm:overflow-visible sm:pb-0
+              [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
+            "
+          >
+            {displayedProducts.map((product) => (
+              <div
+                key={product.id}
+                className="
+                  product-slider-item botanical-card overflow-hidden flex flex-col group
+                  w-[82vw] max-w-[310px] flex-shrink-0 snap-start
+                  sm:w-auto sm:max-w-none sm:flex-shrink
+                "
+              >
+                {/* Product Image Frame */}
+                <div className="relative aspect-[4/3] bg-sand-100 overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  {product.badge && (
+                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-forest-900/90 backdrop-blur-sm text-cream-50 border border-forest-700/50 shadow-sm">
+                      {product.badge}
+                    </span>
+                  )}
+                  {product.price && (
+                    <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-bold bg-sunflower text-forest-950 shadow-sm">
+                      {product.price}
+                    </span>
+                  )}
+                </div>
+
+                {/* Product Content */}
+                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-2">
+                    <div className="text-[11px] uppercase tracking-wider text-olive-700 font-semibold">
+                      {product.category.replace('-', ' ')}
+                    </div>
+                    <h3 className="font-serif text-lg font-bold text-forest-950 line-clamp-1 group-hover:text-forest-800 transition-colors">
+                      <Link to={`/product/${product.id}`} className="hover:underline decoration-olive-600/50">
+                        {product.name}
+                      </Link>
+                    </h3>
+                    <p className="text-xs text-charcoal-600 line-clamp-2 leading-relaxed">
+                      {product.shortDescription}
+                    </p>
                   </div>
-                  <h3 className="font-serif text-lg font-bold text-forest-950 line-clamp-1 group-hover:text-forest-800 transition-colors">
-                    <Link to={`/product/${product.id}`} className="hover:underline decoration-olive-600/50">
-                      {product.name}
+
+                  {/* Key Ingredients Pill preview */}
+                  {product.ingredients && product.ingredients.length > 0 && (
+                    <div className="pt-2 border-t border-sand-100 flex flex-wrap gap-1">
+                      {product.ingredients.slice(0, 3).map((ing, idx) => (
+                        <span
+                          key={idx}
+                          className="text-[10px] px-2 py-0.5 rounded-full bg-sand-100/70 text-charcoal-700"
+                        >
+                          {ing}
+                        </span>
+                      ))}
+                      {product.ingredients.length > 3 && (
+                        <span className="text-[10px] text-olive-800 font-medium self-center pl-1">
+                          +{product.ingredients.length - 3} more
+                        </span>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Card Action */}
+                  <div className="pt-2 flex items-center gap-2">
+                    <Link
+                      to={`/product/${product.id}`}
+                      className="flex-1 py-2.5 px-3 rounded-xl bg-[#3E4D3A] text-white text-xs font-medium flex items-center justify-center gap-1.5 hover:bg-[#2E3C2B] transition-all shadow-sm group/btn"
+                    >
+                      <span>View Formula</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
                     </Link>
-                  </h3>
-                  <p className="text-xs text-charcoal-600 line-clamp-2 leading-relaxed">
-                    {product.shortDescription}
-                  </p>
-                </div>
-
-                {/* Key Ingredients Pill preview */}
-                {product.ingredients && product.ingredients.length > 0 && (
-                  <div className="pt-2 border-t border-sand-100 flex flex-wrap gap-1">
-                    {product.ingredients.slice(0, 3).map((ing, idx) => (
-                      <span
-                        key={idx}
-                        className="text-[10px] px-2 py-0.5 rounded-full bg-sand-100/70 text-charcoal-700"
-                      >
-                        {ing}
-                      </span>
-                    ))}
-                    {product.ingredients.length > 3 && (
-                      <span className="text-[10px] text-olive-800 font-medium self-center pl-1">
-                        +{product.ingredients.length - 3} more
-                      </span>
-                    )}
+                    <button
+                      onClick={() => setActiveProduct(product)}
+                      className="p-2.5 rounded-xl bg-sand-100 border border-sand-200 text-forest-900 hover:bg-sand-200 transition-colors"
+                      title="Quick preview"
+                      aria-label={`Quick preview ${product.name}`}
+                    >
+                      <Info className="w-3.5 h-3.5" />
+                    </button>
                   </div>
-                )}
-
-                {/* Card Action */}
-                <div className="pt-2 flex items-center gap-2">
-                  <Link
-                    to={`/product/${product.id}`}
-                    className="flex-1 py-2.5 px-3 rounded-xl bg-[#3E4D3A] text-white text-xs font-medium flex items-center justify-center gap-1.5 hover:bg-[#2E3C2B] transition-all shadow-sm group/btn"
-                  >
-                    <span>View Formula</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
-                  </Link>
-                  <button
-                    onClick={() => setActiveProduct(product)}
-                    className="p-2.5 rounded-xl bg-sand-100 border border-sand-200 text-forest-900 hover:bg-sand-200 transition-colors"
-                    title="Quick preview"
-                    aria-label={`Quick preview ${product.name}`}
-                  >
-                    <Info className="w-3.5 h-3.5" />
-                  </button>
                 </div>
               </div>
+            ))}
+          </div>
+
+          {/* Mobile Scroll Progress Indicator */}
+          {displayedProducts.length > 1 && (
+            <div className="sm:hidden mt-2 px-1 flex items-center gap-3">
+              <div className="flex-1 h-1 bg-sand-200 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-forest-800 rounded-full transition-all duration-150"
+                  style={{ width: `${Math.max(15, scrollProgress)}%` }}
+                />
+              </div>
+              <span className="text-[10px] font-semibold text-charcoal-500 uppercase tracking-wider whitespace-nowrap">
+                {displayedProducts.length} formulations
+              </span>
             </div>
-          ))}
+          )}
         </div>
 
         {/* Empty State when filter yields none */}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Clock, MapPin, Send, CheckCircle2, Sparkles, AlertCircle, Copy, Check } from 'lucide-react';
 import { BUSINESS_INFO } from '../../data/verdauraData';
+import { inquiryService } from '../../lib/services/inquiryService';
 
 export const ContactInquirySection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -40,6 +41,8 @@ export const ContactInquirySection: React.FC = () => {
       return;
     }
     setErrors({});
+    // Store inquiry in xRM database
+    inquiryService.submitPublicInquiry(formData);
     setSubmitted(true);
   };
 

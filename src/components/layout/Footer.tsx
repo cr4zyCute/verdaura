@@ -13,16 +13,17 @@ export const Footer: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ========================================================= */}
-        {/* MAIN 3-COLUMN LAYOUT                                      */}
-        {/* Col 1: Banner + Information (Littleton, Store Hours, Phone)*/}
-        {/* Col 2: About Us Links                                     */}
-        {/* Col 3: Contact & Service Area                             */}
+        {/* MAIN 4-COLUMN BALANCED LAYOUT                             */}
+        {/* Col 1: Brand Logo & Mission Statement                     */}
+        {/* Col 2: Store Hours & Appointment Notice                   */}
+        {/* Col 3: About Us Navigation Links                          */}
+        {/* Col 4: Contact, Phone Orders & Service Area               */}
         {/* ========================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 items-start">
           
-          {/* Column 1: Verdaura Logo + Littleton & Store Hours */}
-          <div className="md:col-span-5 space-y-4 flex flex-col items-start">
-            <div className="w-full max-w-[270px] rounded-2xl overflow-hidden shadow-md border border-sunflower-500/25 bg-[#FAF7F2] p-3.5 transition-transform duration-300 hover:border-sunflower-400/40">
+          {/* Column 1: Brand Logo & Tagline */}
+          <div className="space-y-3">
+            <div className="w-full max-w-[240px] rounded-2xl overflow-hidden shadow-md border border-sunflower-500/25 bg-[#FAF7F2] p-3 transition-transform duration-300 hover:border-sunflower-400/40">
               <img
                 src="/images/verdaura-logo.png"
                 alt="Verdaura - Herbal Wellness & Botanical Remedies"
@@ -30,137 +31,132 @@ export const Footer: React.FC = () => {
                 loading="lazy"
               />
             </div>
+            <p className="text-xs text-cream-300 leading-relaxed max-w-[240px]">
+              Pure botanical remedies and handcrafted aromatherapy, formulated with care in Littleton, Colorado.
+            </p>
+          </div>
 
-            {/* Information directly at the bottom of the logo */}
-            <div className="space-y-2 text-left max-w-[320px]">
-              <p className="font-serif text-sm sm:text-base text-cream-100 font-medium leading-snug">
-                Verdaura products are made in Littleton, Colorado USA
-              </p>
+          {/* Column 2: Store Hours */}
+          <div className="space-y-2">
+            <h4 className="font-serif text-lg sm:text-xl font-bold text-cream-100 tracking-tight">
+              Store Hours
+            </h4>
+            <div className="w-10 h-1 bg-sunflower-500 rounded-full mb-3" />
 
-              <p className="font-sans text-xs text-sunflower-400 font-semibold tracking-wide">
-                Phone Orders are Welcome
-              </p>
-
-              <div className="pt-1 space-y-0.5 text-xs text-cream-200">
-                <p className="font-sans text-[11px] font-bold text-sunflower-500 uppercase tracking-widest">
-                  STORE HOURS
+            <div className="space-y-2.5 text-xs text-cream-200">
+              <div>
+                <span className="block font-sans text-[11px] font-bold text-sunflower-500 uppercase tracking-wider">
+                  Operating Hours
+                </span>
+                <p className="text-cream-100 font-medium pt-0.5">
+                  10:00 AM – 5:00 PM <span className="text-cream-300 font-normal">Mountain Time</span>
                 </p>
-                <p className="text-cream-200">
-                  10:00 am - 5:00 pm - Mountain Time
-                </p>
-                <p className="font-semibold text-cream-100 uppercase tracking-wide text-[11px]">
-                  TUESDAY thru SATURDAY
+              </div>
+
+              <div>
+                <span className="block font-sans text-[11px] font-bold text-sunflower-500 uppercase tracking-wider">
+                  Days Open
+                </span>
+                <p className="text-cream-100 font-semibold uppercase tracking-wide text-[11px] pt-0.5">
+                  Tuesday thru Saturday
                 </p>
                 <p className="text-cream-300 text-[11px]">
                   Closed Sunday &amp; Monday
                 </p>
-                <p className="text-[11px] text-sunflower-300/90 italic pt-0.5">
-                  (ON SITE SERVICES BY APPOINTMENT ONLY!)
+              </div>
+
+              <div className="pt-0.5">
+                <p className="text-[11px] text-sunflower-300/90 italic bg-forest-900/70 border border-forest-800/90 rounded-lg px-2.5 py-1.5 leading-snug">
+                  On-site services by appointment only
                 </p>
               </div>
-
-              <div className="pt-1.5">
-                <a
-                  href={BUSINESS_INFO.phoneHref}
-                  className="inline-flex items-center gap-1.5 text-sunflower-400 hover:text-sunflower-300 font-serif text-base font-bold tracking-wide transition-colors group"
-                  aria-label="Call Verdaura at 303-788-1614"
-                >
-                  <Phone className="w-3.5 h-3.5 text-sunflower-400 group-hover:scale-110 transition-transform" />
-                  <span>303-788-1614</span>
-                </a>
-              </div>
             </div>
           </div>
 
-          {/* Column 2: About Us */}
-          <div className="md:col-span-4 space-y-2">
-            <h4 className="font-serif text-xl sm:text-2xl font-bold text-cream-100 tracking-tight">
+          {/* Column 3: About Us */}
+          <div className="space-y-2">
+            <h4 className="font-serif text-lg sm:text-xl font-bold text-cream-100 tracking-tight">
               About Us
             </h4>
-            <div className="w-10 h-1 bg-sunflower-500 rounded-full mb-4" />
+            <div className="w-10 h-1 bg-sunflower-500 rounded-full mb-3" />
 
-            <div className="grid grid-cols-2 gap-4 text-xs sm:text-sm text-cream-200">
-              {/* Sub-Column 1 */}
-              <ul className="space-y-2.5 list-none p-0 m-0">
-                <li>
-                  <Link to="/" className="hover:text-sunflower-400 transition-colors inline-block">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/products" className="hover:text-sunflower-400 transition-colors inline-block">
-                    Shop Now
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/products?category=herbals" className="hover:text-sunflower-400 transition-colors inline-block">
-                    Herbals
-                  </Link>
-                </li>
-              </ul>
-
-              {/* Sub-Column 2 */}
-              <ul className="space-y-2.5 list-none p-0 m-0">
-                <li>
-                  <Link to="/products?category=remedy-oils" className="hover:text-sunflower-400 transition-colors inline-block">
-                    Remedies
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/products?category=essential-oil" className="hover:text-sunflower-400 transition-colors inline-block">
-                    Aromatherapy
-                  </Link>
-                </li>
-                <li>
-                  <a href="/#contact" className="hover:text-sunflower-400 transition-colors inline-block">
-                    Contact Us
-                  </a>
-                </li>
-              </ul>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-xs sm:text-sm text-cream-200">
+              <Link to="/" className="hover:text-sunflower-400 transition-colors inline-block">
+                Home
+              </Link>
+              <Link to="/products?category=remedy-oils" className="hover:text-sunflower-400 transition-colors inline-block">
+                Remedies
+              </Link>
+              <Link to="/products" className="hover:text-sunflower-400 transition-colors inline-block">
+                Shop Now
+              </Link>
+              <Link to="/products?category=essential-oil" className="hover:text-sunflower-400 transition-colors inline-block">
+                Aromatherapy
+              </Link>
+              <Link to="/products?category=herbals" className="hover:text-sunflower-400 transition-colors inline-block">
+                Herbals
+              </Link>
+              <a href="/#contact" className="hover:text-sunflower-400 transition-colors inline-block">
+                Contact Us
+              </a>
             </div>
           </div>
 
-          {/* Column 3: Contact & Back to Top */}
-          <div className="md:col-span-3 space-y-2">
+          {/* Column 4: Contact & Location */}
+          <div className="space-y-2">
             <div className="flex items-center justify-between">
               <div>
-                <h4 className="font-serif text-xl sm:text-2xl font-bold text-cream-100 tracking-tight">
+                <h4 className="font-serif text-lg sm:text-xl font-bold text-cream-100 tracking-tight">
                   Contact
                 </h4>
-                <div className="w-10 h-1 bg-sunflower-500 rounded-full mb-4" />
+                <div className="w-10 h-1 bg-sunflower-500 rounded-full mb-3" />
               </div>
 
               {/* Back to top button */}
               <button
                 onClick={scrollToTop}
-                className="w-9 h-9 rounded-full bg-forest-900 border border-forest-700/80 text-sunflower-400 hover:bg-forest-800 hover:text-sunflower-300 hover:border-sunflower-500/50 flex items-center justify-center transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunflower"
+                className="w-8 h-8 rounded-full bg-forest-900 border border-forest-700/80 text-sunflower-400 hover:bg-forest-800 hover:text-sunflower-300 hover:border-sunflower-500/50 flex items-center justify-center transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunflower"
                 aria-label="Scroll back to top"
                 title="Scroll back to top"
               >
-                <ChevronUp className="w-5 h-5" />
+                <ChevronUp className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="space-y-3.5 text-xs sm:text-sm text-cream-200">
+            <div className="space-y-3 text-xs sm:text-sm text-cream-200">
               <div>
                 <span className="block text-[11px] font-semibold text-sunflower-400/90 uppercase tracking-wider mb-0.5">
                   Phone:
                 </span>
                 <a
                   href={BUSINESS_INFO.phoneHref}
-                  className="font-serif text-sm sm:text-base font-bold text-cream-100 hover:text-sunflower-400 transition-colors"
+                  className="inline-flex items-center gap-1.5 font-serif text-base font-bold text-cream-100 hover:text-sunflower-400 transition-colors group"
+                  aria-label="Call Verdaura at 303-788-1614"
                 >
-                  (303) 788-1614
+                  <Phone className="w-3.5 h-3.5 text-sunflower-400 group-hover:scale-110 transition-transform" />
+                  <span>(303) 788-1614</span>
                 </a>
+                <p className="text-[11px] text-sunflower-400 font-medium pt-0.5">
+                  Phone Orders are Welcome
+                </p>
               </div>
 
               <div>
                 <span className="block text-[11px] font-semibold text-sunflower-400/90 uppercase tracking-wider mb-0.5">
-                  Service Area
+                  Location:
                 </span>
-                <span className="text-cream-100 font-medium">
-                  Colorado and USA
+                <p className="text-cream-100 font-medium text-xs">
+                  Littleton, Colorado USA
+                </p>
+              </div>
+
+              <div>
+                <span className="block text-[11px] font-semibold text-sunflower-400/90 uppercase tracking-wider mb-0.5">
+                  Service Area:
                 </span>
+                <p className="text-cream-200 text-xs">
+                  Colorado and Contiguous USA
+                </p>
               </div>
             </div>
           </div>
@@ -172,9 +168,13 @@ export const Footer: React.FC = () => {
           <p className="font-medium text-cream-300">
             &copy; {new Date().getFullYear()} Verdaura. All rights reserved.
           </p>
-          <p className="text-[11px] text-cream-400/70">
-            Herbal Wellness &amp; Botanical Remedies
-          </p>
+          <div className="flex items-center gap-3 text-[11px] text-cream-400/80">
+            <span>Herbal Wellness &amp; Botanical Remedies</span>
+            <span>•</span>
+            <Link to="/admin" className="hover:text-sunflower-400 text-cream-300 font-medium transition-colors">
+              Staff xRM Portal
+            </Link>
+          </div>
         </div>
 
       </div>

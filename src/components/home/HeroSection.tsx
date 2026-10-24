@@ -5,36 +5,47 @@ import { SeamlessHeroVideo } from './SeamlessHeroVideo';
 export const HeroSection: React.FC = () => {
   return (
     <section id="hero" className="relative w-full overflow-hidden bg-[#FAF7F2] border-b border-sand-200">
+      {/* Mobile Visual Showcase (Top of Hero on Mobile/Tablet) */}
+      <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:hidden overflow-hidden bg-[#FAF7F2]">
+        <SeamlessHeroVideo
+          videoSrc="/videos/hero-leaves.mp4"
+          posterSrc="/images/hero-video-poster.jpg"
+          className="w-full h-full object-cover object-bottom select-none"
+        />
+        {/* Soft bottom blend to page background */}
+        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#FAF7F2] via-[#FAF7F2]/80 to-transparent pointer-events-none" />
+      </div>
+
       {/* Cinematic Hero Container */}
-      <div className="relative min-h-[520px] sm:min-h-[580px] md:min-h-[640px] lg:min-h-[690px] w-full flex items-center">
-        {/* Background Seamless Hero Video with Gentle Breeze Leaves (Shifted ~2 inches / 192px right to prevent text overlap) */}
-        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#FAF7F2]">
-          <div className="w-full h-full translate-x-0 sm:translate-x-10 md:translate-x-28 lg:translate-x-48 xl:translate-x-48 transition-transform duration-300">
+      <div className="relative w-full flex items-center lg:min-h-[690px]">
+        {/* Desktop Background Seamless Hero Video (Right-aligned) */}
+        <div className="hidden lg:block absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#FAF7F2]">
+          <div className="w-full h-full translate-x-32 xl:translate-x-48 transition-transform duration-300">
             <SeamlessHeroVideo
               videoSrc="/videos/hero-leaves.mp4"
               posterSrc="/images/hero-video-poster.jpg"
-              className="w-full h-full object-cover object-bottom sm:object-[center_bottom] lg:object-[center_bottom] select-none"
+              className="w-full h-full object-cover object-[center_bottom] select-none"
             />
           </div>
         </div>
 
-        {/* Left-Side Pure White Gradient to Transparent (Updated 1792737398) (z-10: Visibly Above Video, Under Content) */}
+        {/* Desktop Left-Side Pure White/Cream Gradient to Transparent */}
         <div
-          className="absolute inset-y-0 left-0 w-full md:w-[65%] lg:w-[58%] pointer-events-none z-10"
+          className="hidden lg:block absolute inset-y-0 left-0 w-[58%] pointer-events-none z-10"
           style={{
-            background: 'linear-gradient(to right, #FFFFFF 0%, #FFFFFF 22%, rgba(255, 255, 255, 0.96) 36%, rgba(255, 255, 255, 0.75) 54%, rgba(255, 255, 255, 0.25) 78%, rgba(255, 255, 255, 0) 100%)',
+            background: 'linear-gradient(to right, #FAF7F2 0%, #FAF7F2 25%, rgba(250, 247, 242, 0.95) 45%, rgba(250, 247, 242, 0.6) 70%, rgba(250, 247, 242, 0) 100%)',
           }}
         />
 
         {/* Foreground Content Container */}
-        <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full py-10 sm:py-14 md:py-16">
+        <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 w-full pt-4 pb-10 sm:py-12 lg:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            {/* Left Column: Hero Title, Subtitle, and CTA Pill Button (Exact Match to Reference Style) */}
-            <div className="lg:col-span-7 max-w-xl space-y-6 bg-[#FAF7F2]/85 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-6 sm:p-0 rounded-3xl border border-sand-200/80 sm:border-transparent shadow-sm sm:shadow-none">
+            {/* Content Column: Clean Editorial Flow on mobile, Left Column on desktop */}
+            <div className="lg:col-span-7 max-w-xl space-y-5 sm:space-y-6">
               
               {/* Colorado Heritage Tag */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-sand-300/80 shadow-sm text-xs font-sans text-forest-900">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-sand-300/80 shadow-xs text-xs font-sans text-forest-900">
                 <Sparkles className="w-3.5 h-3.5 text-sunflower-600" />
                 <span className="font-medium tracking-wide">Littleton, Colorado</span>
                 <span className="text-sand-400">•</span>
@@ -44,26 +55,26 @@ export const HeroSection: React.FC = () => {
               {/* Main Headline */}
               <div className="space-y-2">
                 <p className="font-sans text-xs sm:text-sm font-semibold tracking-[0.24em] text-[#696155] uppercase">
-                  Available To you!
+                  Artisan Botanical Remedies
                 </p>
 
-                <h1 className="font-serif tracking-tight text-[#2B382A] leading-[1.04] text-4xl sm:text-5xl md:text-6xl lg:text-[68px]">
-                  &ldquo;Soothing Your Life
+                <h1 className="font-serif tracking-tight text-[#2B382A] leading-[1.08] text-3xl sm:text-4xl md:text-5xl lg:text-[64px]">
+                  Handcrafted Wellness,
                   <br />
-                  <span className="italic font-normal font-serif text-[#3A4B37]">Naturally!&rdquo;</span>
+                  <span className="italic font-normal font-serif text-[#3A4B37]">Formulated with Nature</span>
                 </h1>
               </div>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-charcoal-700 leading-relaxed font-normal max-w-md">
-                Verdaura offers natural holistic remedies for those who want to achieve and maintain good health. Verdaura can formulate a special blend just for you.
+              <p className="text-sm sm:text-base text-charcoal-700 leading-relaxed font-normal max-w-lg">
+                Pure therapeutic essential oils, concentrated herbal extracts, and custom holistic remedies created in small batches in Littleton, Colorado.
               </p>
 
               {/* Call to Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <a
                   href="#featured"
-                  className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#3E4D3A] text-white font-sans font-medium text-sm tracking-wide shadow-sm hover:bg-[#2E3C2B] hover:shadow-botanical hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 min-h-[48px]"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-[#3E4D3A] text-white font-sans font-medium text-sm tracking-wide shadow-sm hover:bg-[#2E3C2B] hover:shadow-botanical hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 min-h-[48px]"
                 >
                   <span>Shop Now</span>
                   <ArrowRight className="w-4 h-4 text-white/90" />
@@ -71,7 +82,7 @@ export const HeroSection: React.FC = () => {
 
                 <a
                   href="#story"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/90 backdrop-blur-sm border border-sand-300/80 text-forest-900 font-sans font-medium text-sm tracking-wide hover:bg-white hover:border-forest-600 hover:-translate-y-0.5 transition-all duration-300 min-h-[48px]"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/90 backdrop-blur-sm border border-sand-300/80 text-forest-900 font-sans font-medium text-sm tracking-wide hover:bg-white hover:border-forest-600 hover:-translate-y-0.5 transition-all duration-300 min-h-[48px]"
                 >
                   <span>Our Story</span>
                 </a>
@@ -90,8 +101,8 @@ export const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Empty spacer for grid balance */}
-            <div className="lg:col-span-5 relative pointer-events-none" />
+            {/* Right Column: Empty spacer for grid balance on desktop */}
+            <div className="hidden lg:block lg:col-span-5 relative pointer-events-none" />
 
           </div>
         </div>
