@@ -86,26 +86,28 @@ export const Navbar: React.FC<NavbarProps> = () => {
             ))}
           </nav>
 
-          {/* Desktop Right CTA: Shop Now Button */}
+          {/* Desktop Right Actions: Separate Bag Button and Shop All Products Button */}
           <div className="hidden md:flex items-center gap-3">
+            {/* Standalone Shopping Bag Button */}
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#3E4D3A] text-white hover:bg-[#2D3A2C] transition-all text-xs font-sans font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5"
+              className="p-2.5 rounded-full bg-sand-200/60 hover:bg-sand-300/80 text-[#2D3A2C] hover:text-forest-900 transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest shadow-xs"
+              aria-label="Shopping Bag"
+              title="Shopping Bag"
             >
-              <ShoppingBag className="w-3.5 h-3.5" />
-              <span>Shop All Products</span>
+              <ShoppingBag className="w-4 h-4" />
             </Link>
 
+            {/* Standalone Shop All Products Button */}
             <Link
               to="/products"
-              className="lg:hidden inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-sand-300 text-[#2D3A2C] text-xs font-sans font-medium"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-[#3E4D3A] text-white hover:bg-[#2D3A2C] transition-all text-xs font-sans font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>Shop</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>Shop All Products</span>
             </Link>
           </div>
 
-          {/* Mobile Actions: Phone & Hamburger */}
+          {/* Mobile Actions: Phone, Bag & Hamburger */}
           <div className="flex items-center gap-2 md:hidden">
             <a
               href={BUSINESS_INFO.phoneHref}
@@ -114,6 +116,13 @@ export const Navbar: React.FC<NavbarProps> = () => {
             >
               <Phone className="w-4 h-4" />
             </a>
+            <Link
+              to="/products"
+              className="p-2.5 rounded-full bg-sand-200/60 text-[#2D3A2C]"
+              aria-label="Shopping Bag"
+            >
+              <ShoppingBag className="w-4 h-4" />
+            </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-full bg-sand-200/60 text-[#2D3A2C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest"
