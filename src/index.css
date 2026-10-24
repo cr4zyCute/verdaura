@@ -3,102 +3,90 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-[#070b14] text-slate-100 font-sans tracking-tight;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
   }
 
-  /* Custom sleek scrollbar */
+  body {
+    @apply bg-[#FAF7F2] text-charcoal font-sans antialiased;
+    font-feature-settings: "liga" 1, "kern" 1;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif tracking-tight text-forest-900;
+  }
+
+  /* Custom natural scrollbar */
   ::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #090d16;
+    background: #FAF7F2;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: #D7CDBB;
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #334155;
+    background: #B4A690;
   }
 }
 
-.glass-panel {
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Fluid Hero Typography */
+.hero-title-fluid {
+  font-size: clamp(2.25rem, 4.2vw + 1rem, 4.25rem);
+  line-height: 1.08;
 }
 
-.glass-card {
-  background: rgba(15, 23, 42, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+.section-title-fluid {
+  font-size: clamp(1.85rem, 2.5vw + 1rem, 3rem);
+  line-height: 1.15;
 }
 
-.glass-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(34, 197, 94, 0.3);
-  box-shadow: 0 12px 30px -10px rgba(34, 197, 94, 0.15);
+/* Botanical Button Patterns */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-forest text-cream-50 font-sans font-medium text-sm tracking-wide transition-all duration-300 shadow-sm hover:bg-forest-800 hover:shadow-botanical hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2 min-h-[48px] min-w-[48px];
 }
 
-/* Gradient text utility */
-.text-gradient-brand {
-  background: linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #10b981 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#FAF7F2]/90 backdrop-blur-sm border border-sand-300 text-forest-900 font-sans font-medium text-sm tracking-wide transition-all duration-300 hover:bg-white hover:border-forest-600 hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest min-h-[48px] min-w-[48px];
 }
 
-.text-gradient-purple {
-  background: linear-gradient(135deg, #a78bfa 0%, #818cf8 50%, #6366f1 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.btn-sunflower {
+  @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-sunflower text-forest-950 font-sans font-semibold text-sm tracking-wide transition-all duration-300 shadow-sm hover:bg-sunflower-400 hover:shadow-warm-glow hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sunflower min-h-[48px] min-w-[48px];
 }
 
-/* Markdown prose tweaks */
-.markdown-body pre {
-  background-color: #0d131f !important;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  overflow-x: auto;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.875rem;
+/* Botanical Card Hover */
+.botanical-card {
+  @apply bg-white rounded-2xl border border-sand-200 transition-all duration-300 hover:shadow-botanical hover:border-forest-200 hover:-translate-y-1;
 }
 
-.markdown-body code {
-  font-family: 'JetBrains Mono', monospace;
-  background-color: rgba(255, 255, 255, 0.06);
-  padding: 0.15rem 0.35rem;
-  border-radius: 0.25rem;
-  font-size: 0.85em;
-  color: #86efac;
+/* Subtle botanical badge */
+.botanical-badge {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium tracking-wider uppercase bg-forest-50 text-forest-800 border border-forest-200/60;
 }
 
-.markdown-body pre code {
-  background-color: transparent;
-  padding: 0;
-  color: #e2e8f0;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.markdown-body table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.markdown-body th,
-.markdown-body td {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.5rem 0.75rem;
-  text-align: left;
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.markdown-body th {
-  background: rgba(30, 41, 59, 0.5);
-  font-weight: 600;
+.animate-scaleIn {
+  animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+
+
+
+

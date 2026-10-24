@@ -4,3 +4,5 @@ dist-ssr
 *.local
 .agents/
 .DS_Store
+.vercel
+.vite
