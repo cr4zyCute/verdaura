@@ -14,9 +14,12 @@ export const SeamlessHeroVideo: React.FC<SeamlessHeroVideoProps> = ({
   const videoRefA = useRef<HTMLVideoElement | null>(null);
   const videoRefB = useRef<HTMLVideoElement | null>(null);
 
-  const [activePlayer, setActivePlayer] = useState<'A' | 'B'>('A');
+  // activeLayer: player currently rendering at full opacity as the base
+  // incomingLayer: player currently crossfading in over the base layer
+  const [activeLayer, setActiveLayer] = useState<'A' | 'B'>('A');
+  const [incomingLayer, setIncomingLayer] = useState<'A' | 'B' | null>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [, setIsVideoLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Check for reduced motion preference
   useEffect(() => {
@@ -30,11 +33,10 @@ export const SeamlessHeroVideo: React.FC<SeamlessHeroVideoProps> = ({
     }
   }, []);
 
-  const crossfadeDuration = 0.8; // 800ms natural crossfade
-  const activePlayerRef = useRef<'A' | 'B'>('A');
-  const isCrossfadingRef = useRef(false);
+  const crossfadeDuration = 1.0; // 1 second silky smooth crossfade
+  const activeRef = useRef<'A' | 'B'>('A');
+  const isTransitioningRef = useRef(false);
 
-  // Seamless Dual-Buffer Looping Engine
   useEffect(() => {
     if (prefersReducedMotion) return;
 
@@ -42,90 +44,113 @@ export const SeamlessHeroVideo: React.FC<SeamlessHeroVideoProps> = ({
     const vB = videoRefB.current;
     if (!vA || !vB) return;
 
+    // Ensure audio is muted so autoplay is never blocked
     vA.muted = true;
     vB.muted = true;
+    vA.defaultMuted = true;
+    vB.defaultMuted = true;
+
+    // Both videos have native loop as a failsafe so they never stop or emit 'ended'
+    vA.loop = true;
+    vB.loop = true;
 
     // Start video A immediately
-    const startInitialPlayback = async () => {
+    const startInitial = async () => {
       try {
         await vA.play();
-        setIsVideoLoaded(true);
-      } catch (err) {
-        console.warn('Hero video autoplay deferred by browser policy:', err);
+        setIsLoaded(true);
+      } catch {
+        // Autoplay policy deferred until user interaction
+        const retry = () => {
+          vA.play().catch(() => {});
+          window.removeEventListener('click', retry);
+          window.removeEventListener('touchstart', retry);
+          window.removeEventListener('scroll', retry);
+        };
+        window.addEventListener('click', retry, { once: true });
+        window.addEventListener('touchstart', retry, { once: true });
+        window.addEventListener('scroll', retry, { once: true });
       }
     };
 
-    startInitialPlayback();
+    startInitial();
 
     const handleTimeUpdate = (e: Event) => {
       const target = e.target as HTMLVideoElement;
-      const currentActive = activePlayerRef.current;
+      const currentActive = activeRef.current;
       const isPlayerA = target === vA;
 
-      // Only monitor the currently playing/active video element
+      // Only listen to the currently active base video
       if ((currentActive === 'A' && !isPlayerA) || (currentActive === 'B' && isPlayerA)) {
         return;
       }
 
-      if (isCrossfadingRef.current || !target.duration) return;
+      if (isTransitioningRef.current || !target.duration || target.duration <= crossfadeDuration * 2) {
+        return;
+      }
 
       const timeRemaining = target.duration - target.currentTime;
 
-      // When approaching the end of the clip, seamlessly wake up the alternate video
+      // When approaching the end of the active video (e.g. at 9.0s of a 10s clip)
       if (timeRemaining <= crossfadeDuration && timeRemaining > 0) {
-        isCrossfadingRef.current = true;
+        isTransitioningRef.current = true;
 
-        const nextVideo = currentActive === 'A' ? vB : vA;
         const nextPlayer = currentActive === 'A' ? 'B' : 'A';
+        const nextVideo = nextPlayer === 'B' ? vB : vA;
 
+        // Reset incoming video to frame 0 and begin playback
         nextVideo.currentTime = 0;
-        nextVideo.play().then(() => {
-          activePlayerRef.current = nextPlayer;
-          setActivePlayer(nextPlayer);
 
-          // Allow the CSS crossfade transition to complete smoothly before pausing outgoing video
+        const startCrossfade = () => {
+          // Mount next player on top (z-20) and animate opacity from 0 -> 100
+          setIncomingLayer(nextPlayer);
+
+          // After the crossfade duration completes (1000ms):
           setTimeout(() => {
-            isCrossfadingRef.current = false;
+            // Next player is now the base layer (at 100% opacity)
+            activeRef.current = nextPlayer;
+            setActiveLayer(nextPlayer);
+            setIncomingLayer(null);
+
+            // Pause the previous player and reset it
             try {
               target.pause();
               target.currentTime = 0;
             } catch {
               // ignore
             }
-          }, (crossfadeDuration * 1000) + 100);
-        }).catch((err) => {
-          console.warn('Crossfade buffer switch handled:', err);
-          isCrossfadingRef.current = false;
+
+            // Small cooldown before allowing next crossfade
+            setTimeout(() => {
+              isTransitioningRef.current = false;
+            }, 500);
+          }, crossfadeDuration * 1000);
+        };
+
+        nextVideo.play().then(() => {
+          startCrossfade();
+        }).catch(() => {
+          // If play failed, reset transition flag
+          isTransitioningRef.current = false;
         });
       }
     };
 
-    const handleEnded = (e: Event) => {
-      // Fallback safeguard in case timeupdate missed the seam
-      const target = e.target as HTMLVideoElement;
-      target.currentTime = 0;
-      target.play().catch(() => {});
-    };
-
     vA.addEventListener('timeupdate', handleTimeUpdate);
     vB.addEventListener('timeupdate', handleTimeUpdate);
-    vA.addEventListener('ended', handleEnded);
-    vB.addEventListener('ended', handleEnded);
 
     return () => {
       vA.removeEventListener('timeupdate', handleTimeUpdate);
       vB.removeEventListener('timeupdate', handleTimeUpdate);
-      vA.removeEventListener('ended', handleEnded);
-      vB.removeEventListener('ended', handleEnded);
     };
   }, [prefersReducedMotion, videoSrc]);
 
-  // If user prefers reduced motion, render high quality static hero
+  // Reduced motion: high quality static poster
   if (prefersReducedMotion) {
     return (
       <img
         src={posterSrc}
-        alt="Verdaura handcrafted botanical oils displayed on apothecary tray with gentle sunlight"
+        alt="Verdaura botanical luxury"
         className={className}
         loading="eager"
       />
@@ -133,13 +158,15 @@ export const SeamlessHeroVideo: React.FC<SeamlessHeroVideoProps> = ({
   }
 
   return (
-    <div className="relative z-0 w-full h-full overflow-hidden select-none pointer-events-none bg-white">
-      {/* Permanent Base Poster Layer - Matches Frame 0 Exactly, ensures ZERO white flash or blank frame under any condition */}
+    <div className="relative z-0 w-full h-full overflow-hidden select-none pointer-events-none bg-[#243324]">
+      {/* Permanent Base Poster Layer - Real video frame 0, never flashes white */}
       <img
         src={posterSrc}
         alt=""
         aria-hidden="true"
-        className={`absolute inset-0 ${className} z-0 select-none pointer-events-none`}
+        className={`absolute inset-0 ${className} z-0 select-none pointer-events-none transition-opacity duration-700 ${
+          isLoaded ? 'opacity-0' : 'opacity-100'
+        }`}
         loading="eager"
       />
 
@@ -147,36 +174,42 @@ export const SeamlessHeroVideo: React.FC<SeamlessHeroVideoProps> = ({
       <video
         ref={videoRefA}
         src={videoSrc}
-        poster={posterSrc}
         muted
+        loop
         playsInline
         preload="auto"
         disablePictureInPicture
-        style={{
-          transition: 'opacity 800ms ease-in-out',
-        }}
-        className={`absolute inset-0 ${className} ${
-          activePlayer === 'A' ? 'opacity-100 z-10' : 'opacity-0 z-0'
+        className={`absolute inset-0 ${className} transition-opacity duration-1000 ease-in-out ${
+          activeLayer === 'A'
+            ? 'z-10 opacity-100'
+            : incomingLayer === 'A'
+            ? 'z-20 opacity-100'
+            : 'z-0 opacity-0 pointer-events-none'
         }`}
-        onLoadedData={() => setIsVideoLoaded(true)}
+        onLoadedData={() => setIsLoaded(true)}
+        onPlaying={() => setIsLoaded(true)}
       />
 
       {/* Video Player Buffer B */}
       <video
         ref={videoRefB}
         src={videoSrc}
-        poster={posterSrc}
         muted
+        loop
         playsInline
         preload="auto"
         disablePictureInPicture
-        style={{
-          transition: 'opacity 800ms ease-in-out',
-        }}
-        className={`absolute inset-0 ${className} ${
-          activePlayer === 'B' ? 'opacity-100 z-10' : 'opacity-0 z-0'
+        className={`absolute inset-0 ${className} transition-opacity duration-1000 ease-in-out ${
+          activeLayer === 'B'
+            ? 'z-10 opacity-100'
+            : incomingLayer === 'B'
+            ? 'z-20 opacity-100'
+            : 'z-0 opacity-0 pointer-events-none'
         }`}
+        onLoadedData={() => setIsLoaded(true)}
+        onPlaying={() => setIsLoaded(true)}
       />
     </div>
   );
 };
+

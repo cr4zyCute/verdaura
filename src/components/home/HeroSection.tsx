@@ -8,11 +8,11 @@ export const HeroSection: React.FC = () => {
       {/* Cinematic Hero Container */}
       <div className="relative min-h-[520px] sm:min-h-[580px] md:min-h-[640px] lg:min-h-[690px] w-full flex items-center">
         {/* Background Seamless Hero Video with Gentle Breeze Leaves (Shifted ~2 inches / 192px right to prevent text overlap) */}
-        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-white">
+        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#FAF7F2]">
           <div className="w-full h-full translate-x-0 sm:translate-x-10 md:translate-x-28 lg:translate-x-48 xl:translate-x-48 transition-transform duration-300">
             <SeamlessHeroVideo
               videoSrc="/videos/hero-leaves.mp4"
-              posterSrc="/images/verdaura-hero.jpg"
+              posterSrc="/images/hero-video-poster.jpg"
               className="w-full h-full object-cover object-bottom sm:object-[center_bottom] lg:object-[center_bottom] select-none"
             />
           </div>
