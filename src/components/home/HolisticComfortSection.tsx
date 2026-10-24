@@ -113,7 +113,7 @@ export const HolisticComfortSection: React.FC<HolisticComfortSectionProps> = ({ 
           <div className="lg:col-span-5 xl:col-span-4 space-y-4 xl:space-y-5 text-left relative z-10">
             {/* Heading */}
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-3xl xl:text-[42px] font-semibold text-forest-950 tracking-tight leading-[1.14] drop-shadow-[0_1px_2px_rgba(250,247,242,0.95)]">
-              &ldquo;Indulge In Everyday{' '}
+              &ldquo;Indulge In Everyday<br />
               <span className="italic font-serif text-forest-900">Comfort&rdquo;</span>
             </h2>
 
@@ -124,7 +124,7 @@ export const HolisticComfortSection: React.FC<HolisticComfortSectionProps> = ({ 
 
             {/* Description */}
             <p className="font-sans text-xs sm:text-sm xl:text-[14.5px] text-[#1E2922] leading-relaxed font-normal drop-shadow-[0_1px_1px_rgba(250,247,242,0.85)]">
-              Verdaura - Brings you all natural formulated holistic remedy healing products, that apply to the body, mind, spirit, and social aspects of life, for those who want to achieve and maintain good health. All of our products are made with natural ingredients and formulated to soothe and rejuvenate your mind, body, and spirit. Use our products to alleviate problems without the side effects of harsh chemicals.
+              Verdaura – Brings you all natural formulated holistic remedy healing products, that apply to the body, mind, spirit, and social aspects of life, for those who want to achieve and maintain good health. All of our products are made with natural ingredients and formulated to soothe and rejuvenate your mind, body, and spirit. Use our products to alleviate problems without the side effects of harsh chemicals.
             </p>
           </div>
 
@@ -191,13 +191,6 @@ export const HolisticComfortSection: React.FC<HolisticComfortSectionProps> = ({ 
                     ))}
                   </ul>
                 ))}
-              </div>
-
-              {/* Unboxed Closing Statement */}
-              <div className="pt-3.5 sm:pt-4 mt-3.5 sm:mt-4 border-t border-sand-300/70 text-center sm:text-left">
-                <p className="font-serif text-sm sm:text-base italic text-forest-900 font-medium">
-                  If you can&apos;t find an essential oil, we can find it for you!
-                </p>
               </div>
             </div>
 
