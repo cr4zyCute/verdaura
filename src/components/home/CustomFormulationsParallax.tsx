@@ -81,7 +81,7 @@ export const CustomFormulationsParallax: React.FC<CustomFormulationsParallaxProp
         <img
           ref={imageRef}
           src="/images/custom-formulations-parallax.jpg"
-          alt="Verdaura apothecary bottles, herbs and test kitchen"
+          alt="Verdaura handcrafted apothecary bottles, drying lavender and herbs on sunlit rustic studio shelf"
           aria-hidden="true"
           className="w-full h-full object-cover object-center select-none"
           style={{
