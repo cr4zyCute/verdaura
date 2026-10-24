@@ -18,7 +18,7 @@ export const PhilosophyStory: React.FC = () => {
               <div className="relative rounded-3xl overflow-hidden border border-sand-300 shadow-botanical-lg bg-white">
                 <img
                   src="/images/verdaura-remedies-sunflowers.jpg"
-                  alt="Verdaura handcrafted remedy oils, embroidered brand cloth, and sunflowers in Littleton test kitchen"
+                  alt="Verdaura handcrafted botanical remedies, embroidered linen cloth, and sunflowers in Littleton artisan studio"
                   className="w-full h-[320px] sm:h-[360px] lg:h-[390px] xl:h-[430px] object-cover object-center"
                   loading="lazy"
                 />
@@ -30,10 +30,10 @@ export const PhilosophyStory: React.FC = () => {
                     </div>
                     <div>
                       <span className="font-serif text-sm sm:text-base font-bold text-forest-950 block leading-tight">
-                        Twink Conklin
+                        Elena Hawthorne
                       </span>
                       <span className="text-[10.5px] sm:text-[11px] text-olive-800 font-medium leading-tight block pt-0.5">
-                        5th-Generation Coloradan • Certified Iridologist &amp; Aromatherapist
+                        Founder &amp; Master Herbalist • Clinical Aromatherapist
                       </span>
                     </div>
                   </div>
@@ -52,31 +52,31 @@ export const PhilosophyStory: React.FC = () => {
                 Authentic Heritage &amp; Craftsmanship
               </span>
               <h2 className="font-serif font-bold text-forest-950 tracking-tight text-2xl sm:text-3xl lg:text-[28px] xl:text-[34px] leading-tight">
-                Born From Healing, Handcrafted in Littleton
+                Born From Botanical Wisdom, Handcrafted in Littleton
               </h2>
             </div>
 
             {/* Narrative Body */}
             <div className="space-y-2 text-xs sm:text-[13px] lg:text-[13.5px] xl:text-sm text-charcoal-700 leading-relaxed font-normal">
               <p>
-                Twink Conklin is a fifth-generation native of Colorado, rooted in a family tradition of care and craftsmanship. After graduating as a licensed cosmetologist in 1977 and directing salon operations for over 36 years, Twink faced a pivotal challenge in 1993 when a persistent staph infection failed conventional treatments for five years.
+                Elena Hawthorne grew up surrounded by high-altitude wildflowers along the Colorado foothills, learning the ancient language of plants from her grandmother, an herbalist and gardener. Fascinated by how earth-grown remedies could gently restore balance to the nervous system and skin, Elena pursued clinical botanical medicine and natural distillation, dedicating over two decades to studying pure plant energetics and organic whole-herb extractions.
               </p>
               <p>
-                Her breakthrough came through natural medicine. Inspired by this recovery, Twink dedicated her career to natural health disciplines starting in 1995—earning certification as an <strong>Iridologist</strong> through the Universal School of Medicine for Natural Living, and studying professional Herbology and Aromatherapy.
+                After witnessing how synthetic fragrances, petroleum bases, and mass-market additives overwhelmed delicate bodies, Elena retreated to her Littleton sunroom studio. Beside blooming sunflowers, organic lavender, and wild chamomile, she began hand-crafting small-batch botanical elixirs, testing every concentrated tincture and cold-pressed oil with uncompromising standards.
               </p>
               <p>
-                She developed every Verdaura formula right in her own test kitchen. First shared with her personal iridology clients, the results were so profound that clients urged her to make them available to everyone seeking natural remedies.
+                What began as custom comforting blends for neighbors experiencing stubborn tension, sleep difficulties, and hormonal fatigue quickly grew through word of mouth. Clients reported profound relief from the very first drop, inspiring Elena to found Verdaura: an artisan botanical sanctuary where pure plant wisdom, clean science, and gentle human care unite.
               </p>
             </div>
 
             {/* Editorial Quote Card */}
             <blockquote className="p-4 sm:p-4.5 rounded-2xl bg-white border-l-[5px] border-sunflower-500 border-y border-r border-sand-200 shadow-sm space-y-2">
               <p className="font-serif font-medium sm:font-semibold text-sm sm:text-base lg:text-[16px] text-forest-950 leading-snug tracking-tight">
-                &ldquo;Everything is formulated with natural ingredients in concentrated formulas. We test them on ourselves first. Verdaura was founded with the objective of helping those who choose the natural means to good health.&rdquo;
+                &ldquo;Nature never rushes, yet nothing is left unhealed. At Verdaura, we take the purest essences of the earth and blend them with reverent care—delivering concentrated relief that honors your body, mind, and spirit.&rdquo;
               </p>
               <footer className="text-xs sm:text-[12px] font-bold text-olive-900 uppercase tracking-wider flex items-center gap-2 pt-0.5">
                 <span className="w-5 h-0.5 bg-sunflower-500 rounded-full inline-block" />
-                <span>Twink Conklin, Founder of Verdaura</span>
+                <span>Elena Hawthorne, Founder of Verdaura</span>
               </footer>
             </blockquote>
 

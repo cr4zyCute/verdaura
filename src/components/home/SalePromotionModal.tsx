@@ -303,7 +303,7 @@ export const SalePromotionModal: React.FC = () => {
                     Take <span className="text-[#965F1A] underline decoration-sunflower/60">20% Off</span> Your Handcrafted Botanical Order
                   </h3>
                   <p className="text-xs sm:text-sm text-charcoal-600 leading-relaxed">
-                    Crafted in small therapeutic batches by aromatherapist Twink Conklin. For a limited time, enjoy special pricing starting from just <strong className="text-forest-950 font-sans font-bold">$3.43</strong> across all pure diffuser &amp; bath formulations.
+                    Crafted in small therapeutic batches by aromatherapist Elena Hawthorne. For a limited time, enjoy special pricing starting from just <strong className="text-forest-950 font-sans font-bold">$3.43</strong> across all pure diffuser &amp; bath formulations.
                   </p>
                 </div>
 

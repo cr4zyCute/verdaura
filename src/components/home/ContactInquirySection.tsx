@@ -67,7 +67,7 @@ export const ContactInquirySection: React.FC = () => {
                 Visit or Inquire Directly
               </h2>
               <p className="text-xs sm:text-[13px] text-charcoal-700 leading-relaxed font-normal">
-                Whether you need a custom remedy formulated for sensitive skin, want to schedule an appointment, or have questions about a rare botanical oil, Twink is here to help.
+                Whether you need a custom remedy formulated for sensitive skin, want to schedule an appointment, or have questions about a rare botanical oil, Elena is here to help.
               </p>
             </div>
 
@@ -314,7 +314,7 @@ export const ContactInquirySection: React.FC = () => {
                   {/* Message */}
                   <div>
                     <label className="block text-[11px] font-semibold text-forest-950 mb-1">
-                      How Can Twink Help You? (Optional)
+                      How Can Elena Help You? (Optional)
                     </label>
                     <textarea
                       rows={2}

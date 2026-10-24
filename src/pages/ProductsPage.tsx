@@ -156,7 +156,7 @@ export const ProductsPage: React.FC = () => {
             <div className="p-12 text-center bg-white rounded-3xl border border-sand-200 my-8 space-y-4">
               <p className="font-serif text-2xl font-bold text-forest-950">No Formulations Found</p>
               <p className="text-xs sm:text-sm text-charcoal-600 max-w-md mx-auto">
-                No products match &ldquo;{searchQuery}&rdquo;. Twink Conklin can hand-craft a special custom blend tailored to your specific wellness needs.
+                No products match &ldquo;{searchQuery}&rdquo;. Elena Hawthorne can hand-craft a special custom blend tailored to your specific wellness needs.
               </p>
               <button
                 type="button"
@@ -243,7 +243,7 @@ export const ProductsPage: React.FC = () => {
                 Don&rsquo;t see the exact botanical formula you need?
               </p>
               <p className="text-xs sm:text-sm text-sand-300/90 mt-1">
-                Twink Conklin hand-crafts custom blends for personal sensitivities and allergies.
+                Elena Hawthorne hand-crafts custom blends for personal sensitivities and allergies.
               </p>
             </div>
             <a

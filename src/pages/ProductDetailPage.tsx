@@ -66,7 +66,7 @@ export const ProductDetailPage: React.FC = () => {
             Botanical Formulation Not Found
           </h1>
           <p className="text-charcoal-600 max-w-md mx-auto text-sm sm:text-base leading-relaxed">
-            The formulation you are looking for may have been archived or seasonal. Twink Conklin can hand-craft a special custom blend tailored to your wellness needs.
+            The formulation you are looking for may have been archived or seasonal. Elena Hawthorne can hand-craft a special custom blend tailored to your wellness needs.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
@@ -228,7 +228,7 @@ export const ProductDetailPage: React.FC = () => {
                 </div>
                 <div className="p-3 rounded-2xl bg-white border border-sand-200 text-center space-y-1">
                   <ShieldCheck className="w-5 h-5 text-forest-600 mx-auto" />
-                  <p className="font-semibold text-xs text-forest-950">Twink Conklin</p>
+                  <p className="font-semibold text-xs text-forest-950">Elena Hawthorne</p>
                   <p className="text-[10px] text-charcoal-500">Certified Formulation</p>
                 </div>
                 <div className="p-3 rounded-2xl bg-white border border-sand-200 text-center space-y-1">
@@ -429,7 +429,7 @@ export const ProductDetailPage: React.FC = () => {
                         : 'border-transparent text-charcoal-500 hover:text-forest-900'
                     }`}
                   >
-                    Twink Conklin Notes
+                    Elena Hawthorne Notes
                   </button>
                   <button
                     type="button"
@@ -513,7 +513,7 @@ export const ProductDetailPage: React.FC = () => {
                         TC
                       </div>
                       <div className="space-y-1 text-xs sm:text-sm text-charcoal-700 leading-relaxed">
-                        <p className="font-bold text-forest-950">Twink Conklin, Certified Aromatherapist</p>
+                        <p className="font-bold text-forest-950">Elena Hawthorne, Certified Aromatherapist</p>
                         <p>
                           &ldquo;Every bottle is blended by hand right here in Littleton. We never rush the maturation cycle of whole-plant extracts, ensuring the energetic and chemical balance remains uncompromised.&rdquo;
                         </p>
@@ -556,7 +556,7 @@ export const ProductDetailPage: React.FC = () => {
                 Require a Custom Blend for Personal Sensitivities?
               </h2>
               <p className="text-xs sm:text-sm text-sand-300/90 leading-relaxed">
-                If you have heightened allergies or require adjustments to carrier oils (e.g. substituting almond oil for coconut or jojoba), Twink Conklin hand-formulates custom blends by appointment.
+                If you have heightened allergies or require adjustments to carrier oils (e.g. substituting almond oil for coconut or jojoba), Elena Hawthorne hand-formulates custom blends by appointment.
               </p>
             </div>
 
@@ -681,7 +681,7 @@ export const ProductDetailPage: React.FC = () => {
                 <CheckCircle2 className="w-12 h-12 text-olive-600 mx-auto" />
                 <h3 className="font-serif text-2xl font-bold text-forest-950">Inquiry Received</h3>
                 <p className="text-xs sm:text-sm text-charcoal-600">
-                  Thank you! Twink Conklin will review your requested formulation for personal sensitivities and contact you within 24 business hours.
+                  Thank you! Elena Hawthorne will review your requested formulation for personal sensitivities and contact you within 24 business hours.
                 </p>
               </div>
             ) : (

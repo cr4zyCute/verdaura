@@ -95,7 +95,7 @@ export const FormulationsShowcase: React.FC = () => {
               &ldquo;Verdaura can formulate a special blend just for you.&rdquo;
             </h3>
             <p className="text-xs sm:text-sm text-cream-300 leading-relaxed max-w-xl">
-              Do you have a sensitive reaction to aloe vera, specific carrier nuts, or citrus oils? Twink Conklin routinely custom-formulates individual recipes for clients with allergies or targeted wellness needs.
+              Do you have a sensitive reaction to aloe vera, specific carrier nuts, or citrus oils? Elena Hawthorne routinely custom-formulates individual recipes for clients with allergies or targeted wellness needs.
             </p>
           </div>
 

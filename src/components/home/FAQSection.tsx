@@ -76,7 +76,7 @@ export const FAQSection: React.FC = () => {
               href="#contact"
               className="font-bold text-forest-900 hover:text-sunflower-700 underline decoration-sand-300 underline-offset-4"
             >
-              Reach out to Twink directly
+              Reach out to Elena directly
             </a>
           </p>
         </div>

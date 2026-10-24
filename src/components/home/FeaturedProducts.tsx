@@ -136,7 +136,7 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ selectedCate
               Custom Blends Available in This Category
             </h3>
             <p className="text-xs text-charcoal-600 leading-relaxed">
-              We carry custom handcrafted preparations for this category upon appointment. Contact Twink directly for individual formulations.
+              We carry custom handcrafted preparations for this category upon appointment. Contact Elena directly for individual formulations.
             </p>
             <a
               href={BUSINESS_INFO.phoneHref}
