@@ -27,7 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-lg text-white tracking-tight">Soothers</span>
+              <span className="font-extrabold text-lg text-white tracking-tight">Verdaura</span>
               <span className="text-[10px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                 Skills Hub
               </span>

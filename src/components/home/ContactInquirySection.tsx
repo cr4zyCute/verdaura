@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Clock, MapPin, Send, CheckCircle2, Sparkles, AlertCircle, Copy, Check } from 'lucide-react';
-import { BUSINESS_INFO } from '../../data/soothersData';
+import { BUSINESS_INFO } from '../../data/verdauraData';
 
 export const ContactInquirySection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -46,7 +46,7 @@ export const ContactInquirySection: React.FC = () => {
   return (
     <section
       id="contact"
-      aria-label="Contact Soothers and Schedule Consultations"
+      aria-label="Contact Verdaura and Schedule Consultations"
       className="py-10 sm:py-12 lg:py-8 xl:py-10 bg-[#F4EFE6] border-b border-sand-200 lg:min-h-0 lg:max-h-[900px] lg:flex lg:items-center relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -61,7 +61,7 @@ export const ContactInquirySection: React.FC = () => {
             <div className="space-y-1">
               <span className="botanical-badge text-[11px] py-0.5 px-2.5">
                 <Sparkles className="w-3.5 h-3.5 text-sunflower-600" />
-                Connect With Soothers
+                Connect With Verdaura
               </span>
               <h2 className="font-serif font-bold text-forest-950 text-2xl sm:text-3xl lg:text-[28px] xl:text-[34px] tracking-tight leading-tight">
                 Visit or Inquire Directly

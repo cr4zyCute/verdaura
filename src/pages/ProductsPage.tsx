@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
-import { FEATURED_PRODUCTS, CATEGORIES, BUSINESS_INFO } from '../data/soothersData';
+import { FEATURED_PRODUCTS, CATEGORIES, BUSINESS_INFO } from '../data/verdauraData';
 import {
   Search,
   ArrowRight,

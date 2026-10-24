@@ -12,7 +12,7 @@ import {
   Gift,
   Percent
 } from 'lucide-react';
-import { BUSINESS_INFO } from '../../data/soothersData';
+import { BUSINESS_INFO } from '../../data/verdauraData';
 
 interface SaleProductPreview {
   id: string;
@@ -143,7 +143,7 @@ export const SalePromotionModal: React.FC = () => {
   const handleClose = () => {
     setIsOpen(false);
     setHasInteracted(true);
-    sessionStorage.setItem('soothers_sale_seen', 'true');
+    sessionStorage.setItem('verdaura_sale_seen', 'true');
   };
 
   const currentProduct = SALE_FEATURED_PRODUCTS[activeIdx];

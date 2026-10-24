@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FEATURED_PRODUCTS } from '../../data/soothersData';
-import { ProductItem } from '../../types/soothers';
+import { FEATURED_PRODUCTS, BUSINESS_INFO } from '../../data/verdauraData';
+import { ProductItem } from '../../types/verdaura';
 import { Sparkles, Info, X, Phone, CheckCircle2, ArrowRight } from 'lucide-react';
-import { BUSINESS_INFO } from '../../data/soothersData';
 
 interface FeaturedProductsProps {
   selectedCategory: string;

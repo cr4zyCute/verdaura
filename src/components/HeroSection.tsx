@@ -42,7 +42,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="flex items-center justify-center mb-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700/80 text-xs text-slate-300 backdrop-blur">
             <span className="flex h-2 w-2 rounded-full bg-emerald-400"></span>
-            <span className="font-medium">Soothers Engineering Stack</span>
+            <span className="font-medium">Verdaura Engineering Stack</span>
             <span className="text-slate-500">•</span>
             <span className="text-emerald-400 font-mono text-[11px]">87 Active Playbooks</span>
           </div>

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
-import { FEATURED_PRODUCTS, BUSINESS_INFO, CATEGORIES } from '../data/soothersData';
-import { ProductItem } from '../types/soothers';
+import { FEATURED_PRODUCTS, BUSINESS_INFO, CATEGORIES } from '../data/verdauraData';
+import { ProductItem } from '../types/verdaura';
 import {
   Sparkles,
   ShieldCheck,

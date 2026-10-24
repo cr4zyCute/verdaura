@@ -125,7 +125,7 @@ export const SeamlessHeroVideo: React.FC<SeamlessHeroVideoProps> = ({
     return (
       <img
         src={posterSrc}
-        alt="Soothers handcrafted botanical oils displayed on apothecary tray with gentle sunlight"
+        alt="Verdaura handcrafted botanical oils displayed on apothecary tray with gentle sunlight"
         className={className}
         loading="eager"
       />

@@ -17,8 +17,8 @@ export const PhilosophyStory: React.FC = () => {
               <div className="absolute -inset-2.5 rounded-3xl bg-forest-900/5 rotate-1" />
               <div className="relative rounded-3xl overflow-hidden border border-sand-300 shadow-botanical-lg bg-white">
                 <img
-                  src="/images/soothers-remedies-sunflowers.jpg"
-                  alt="Soothers handcrafted remedy oils, embroidered brand cloth, and sunflowers in Littleton test kitchen"
+                  src="/images/verdaura-remedies-sunflowers.jpg"
+                  alt="Verdaura handcrafted remedy oils, embroidered brand cloth, and sunflowers in Littleton test kitchen"
                   className="w-full h-[320px] sm:h-[360px] lg:h-[390px] xl:h-[430px] object-cover object-center"
                   loading="lazy"
                 />
@@ -65,18 +65,18 @@ export const PhilosophyStory: React.FC = () => {
                 Her breakthrough came through natural medicine. Inspired by this recovery, Twink dedicated her career to natural health disciplines starting in 1995—earning certification as an <strong>Iridologist</strong> through the Universal School of Medicine for Natural Living, and studying professional Herbology and Aromatherapy.
               </p>
               <p>
-                She developed every Soothers formula right in her own test kitchen. First shared with her personal iridology clients, the results were so profound that clients urged her to make them available to everyone seeking natural remedies.
+                She developed every Verdaura formula right in her own test kitchen. First shared with her personal iridology clients, the results were so profound that clients urged her to make them available to everyone seeking natural remedies.
               </p>
             </div>
 
             {/* Editorial Quote Card */}
             <blockquote className="p-4 sm:p-4.5 rounded-2xl bg-white border-l-[5px] border-sunflower-500 border-y border-r border-sand-200 shadow-sm space-y-2">
               <p className="font-serif font-medium sm:font-semibold text-sm sm:text-base lg:text-[16px] text-forest-950 leading-snug tracking-tight">
-                &ldquo;Everything is formulated with natural ingredients in concentrated formulas. We test them on ourselves first. Soothers was founded with the objective of helping those who choose the natural means to good health.&rdquo;
+                &ldquo;Everything is formulated with natural ingredients in concentrated formulas. We test them on ourselves first. Verdaura was founded with the objective of helping those who choose the natural means to good health.&rdquo;
               </p>
               <footer className="text-xs sm:text-[12px] font-bold text-olive-900 uppercase tracking-wider flex items-center gap-2 pt-0.5">
                 <span className="w-5 h-0.5 bg-sunflower-500 rounded-full inline-block" />
-                <span>Twink Conklin, Founder of Soothers</span>
+                <span>Twink Conklin, Founder of Verdaura</span>
               </footer>
             </blockquote>
 

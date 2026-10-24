@@ -12,7 +12,7 @@ export const HeroSection: React.FC = () => {
           <div className="w-full h-full translate-x-0 sm:translate-x-10 md:translate-x-28 lg:translate-x-48 xl:translate-x-48 transition-transform duration-300">
             <SeamlessHeroVideo
               videoSrc="/videos/hero-leaves.mp4"
-              posterSrc="/images/soothers-hero.jpg"
+              posterSrc="/images/verdaura-hero.jpg"
               className="w-full h-full object-cover object-bottom sm:object-[center_bottom] lg:object-[center_bottom] select-none"
             />
           </div>
@@ -56,7 +56,7 @@ export const HeroSection: React.FC = () => {
 
               {/* Description */}
               <p className="text-sm sm:text-base text-charcoal-700 leading-relaxed font-normal max-w-md">
-                Soothers offers natural holistic remedies for those who want to achieve and maintain good health. Soothers can formulate a special blend just for you.
+                Verdaura offers natural holistic remedies for those who want to achieve and maintain good health. Verdaura can formulate a special blend just for you.
               </p>
 
               {/* Call to Action Buttons */}

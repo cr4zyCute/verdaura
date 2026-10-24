@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FAQS } from '../../data/soothersData';
+import { FAQS } from '../../data/verdauraData';
 import { Plus, Minus, HelpCircle } from 'lucide-react';
 
 export const FAQSection: React.FC = () => {

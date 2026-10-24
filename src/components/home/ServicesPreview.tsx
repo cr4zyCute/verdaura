@@ -1,5 +1,5 @@
 import React from 'react';
-import { SERVICES, BUSINESS_INFO } from '../../data/soothersData';
+import { SERVICES, BUSINESS_INFO } from '../../data/verdauraData';
 import { Sparkles, Calendar, CheckCircle, Phone } from 'lucide-react';
 
 export const ServicesPreview: React.FC = () => {

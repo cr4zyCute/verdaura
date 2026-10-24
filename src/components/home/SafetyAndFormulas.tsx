@@ -96,7 +96,7 @@ export const SafetyAndFormulas: React.FC = () => {
               </h3>
 
               <p className="text-xs sm:text-sm lg:text-[14.5px] text-forest-950/90 leading-relaxed font-medium">
-                All Soothers products are in concentrated formulas so that you do not need to use much, and the products last longer. The formulations of all herbal creams and oils can be used almost anywhere on the body. We test them on ourselves.
+                All Verdaura products are in concentrated formulas so that you do not need to use much, and the products last longer. The formulations of all herbal creams and oils can be used almost anywhere on the body. We test them on ourselves.
               </p>
             </div>
 

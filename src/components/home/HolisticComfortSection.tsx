@@ -119,12 +119,12 @@ export const HolisticComfortSection: React.FC<HolisticComfortSectionProps> = ({ 
 
             {/* Subheading */}
             <p className="font-sans text-[11px] sm:text-xs xl:text-[12.5px] font-bold tracking-[0.18em] text-[#7A4B1B] uppercase leading-snug drop-shadow-[0_1px_1px_rgba(250,247,242,0.9)]">
-              Soothers Is Your Source For Holistic Aromatherapy Products In Littleton Colorado
+              Verdaura Is Your Source For Holistic Aromatherapy Products In Littleton Colorado
             </p>
 
             {/* Description */}
             <p className="font-sans text-xs sm:text-sm xl:text-[14.5px] text-[#1E2922] leading-relaxed font-normal drop-shadow-[0_1px_1px_rgba(250,247,242,0.85)]">
-              Soothers - Brings you all natural formulated holistic remedy healing products, that apply to the body, mind, spirit, and social aspects of life, for those who want to achieve and maintain good health. All of our products are made with natural ingredients and formulated to soothe and rejuvenate your mind, body, and spirit. Use our products to alleviate problems without the side effects of harsh chemicals.
+              Verdaura - Brings you all natural formulated holistic remedy healing products, that apply to the body, mind, spirit, and social aspects of life, for those who want to achieve and maintain good health. All of our products are made with natural ingredients and formulated to soothe and rejuvenate your mind, body, and spirit. Use our products to alleviate problems without the side effects of harsh chemicals.
             </p>
           </div>
 

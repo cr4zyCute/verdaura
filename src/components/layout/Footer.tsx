@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, ChevronUp } from 'lucide-react';
-import { BUSINESS_INFO } from '../../data/soothersData';
+import { BUSINESS_INFO } from '../../data/verdauraData';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -20,23 +20,21 @@ export const Footer: React.FC = () => {
         {/* ========================================================= */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Column 1: Banner Image + Littleton & Store Hours Below */}
+          {/* Column 1: Verdaura Logo + Littleton & Store Hours */}
           <div className="md:col-span-5 space-y-4 flex flex-col items-start">
-            <div className="w-full max-w-[300px] rounded-xl overflow-hidden shadow-md border border-sunflower-500/25 bg-forest-900/60 transition-transform duration-300 hover:border-sunflower-400/40">
+            <div className="w-full max-w-[270px] rounded-2xl overflow-hidden shadow-md border border-sunflower-500/25 bg-[#FAF7F2] p-3.5 transition-transform duration-300 hover:border-sunflower-400/40">
               <img
-                src="/images/soothers-footer-banner.png"
-                alt="Soothers - Handcrafted Aromatherapy & Botanical Remedies"
-                className="w-full h-auto block object-cover"
-                width={300}
-                height={93}
+                src="/images/verdaura-logo.png"
+                alt="Verdaura - Herbal Wellness & Botanical Remedies"
+                className="w-full h-auto block object-contain"
                 loading="lazy"
               />
             </div>
 
-            {/* Information directly at the bottom of the image */}
+            {/* Information directly at the bottom of the logo */}
             <div className="space-y-2 text-left max-w-[320px]">
               <p className="font-serif text-sm sm:text-base text-cream-100 font-medium leading-snug">
-                Soothers products are made in Littleton, Colorado USA
+                Verdaura products are made in Littleton, Colorado USA
               </p>
 
               <p className="font-sans text-xs text-sunflower-400 font-semibold tracking-wide">
@@ -65,7 +63,7 @@ export const Footer: React.FC = () => {
                 <a
                   href={BUSINESS_INFO.phoneHref}
                   className="inline-flex items-center gap-1.5 text-sunflower-400 hover:text-sunflower-300 font-serif text-base font-bold tracking-wide transition-colors group"
-                  aria-label="Call Soothers at 303-788-1614"
+                  aria-label="Call Verdaura at 303-788-1614"
                 >
                   <Phone className="w-3.5 h-3.5 text-sunflower-400 group-hover:scale-110 transition-transform" />
                   <span>303-788-1614</span>
@@ -172,10 +170,10 @@ export const Footer: React.FC = () => {
         {/* Bottom Copyright & Credit Bar */}
         <div className="mt-10 pt-6 border-t border-forest-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-cream-400 gap-2">
           <p className="font-medium text-cream-300">
-            &copy; {new Date().getFullYear()} Soothers. All rights reserved.
+            &copy; {new Date().getFullYear()} Verdaura. All rights reserved.
           </p>
           <p className="text-[11px] text-cream-400/70">
-            Website by web.com
+            Herbal Wellness &amp; Botanical Remedies
           </p>
         </div>
 

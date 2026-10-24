@@ -1,6 +1,5 @@
-import React from 'react';
 import { Droplet, Sparkles, Phone } from 'lucide-react';
-import { BUSINESS_INFO } from '../../data/soothersData';
+import { BUSINESS_INFO } from '../../data/verdauraData';
 
 export const FormulationsShowcase: React.FC = () => {
   return (
@@ -93,7 +92,7 @@ export const FormulationsShowcase: React.FC = () => {
               Specialized Formulations for You
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-cream-50">
-              &ldquo;Soothers can formulate a special blend just for you.&rdquo;
+              &ldquo;Verdaura can formulate a special blend just for you.&rdquo;
             </h3>
             <p className="text-xs sm:text-sm text-cream-300 leading-relaxed max-w-xl">
               Do you have a sensitive reaction to aloe vera, specific carrier nuts, or citrus oils? Twink Conklin routinely custom-formulates individual recipes for clients with allergies or targeted wellness needs.

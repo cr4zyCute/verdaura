@@ -1,6 +1,6 @@
 import React from 'react';
 import { Phone, Clock, MapPin, Sparkles } from 'lucide-react';
-import { BUSINESS_INFO } from '../../data/soothersData';
+import { BUSINESS_INFO } from '../../data/verdauraData';
 
 export const AnnouncementBar: React.FC = () => {
   return (
@@ -27,7 +27,7 @@ export const AnnouncementBar: React.FC = () => {
           <a
             href={BUSINESS_INFO.phoneHref}
             className="flex items-center gap-1.5 text-cream-100 hover:text-sunflower-300 transition-colors py-1 focus-visible:outline-none focus-visible:underline"
-            title="Call Soothers for orders or consultation appointments"
+            title="Call Verdaura for orders or consultation appointments"
           >
             <Phone className="w-3 h-3 text-sunflower-400" />
             <span>Orders &amp; Consultations: {BUSINESS_INFO.phone}</span>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CATEGORIES } from '../../data/soothersData';
+import { CATEGORIES } from '../../data/verdauraData';
 import { Sparkles, Droplets, Leaf, Flower2, Heart, Wind, Shield } from 'lucide-react';
 
 interface CategoryDiscoveryProps {

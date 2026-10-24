@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ShoppingBag, ArrowRight, Phone } from 'lucide-react';
-import { BUSINESS_INFO } from '../../data/soothersData';
+import { BUSINESS_INFO } from '../../data/verdauraData';
 import { AnnouncementBar } from './AnnouncementBar';
 
 interface NavbarProps {
@@ -49,13 +49,18 @@ export const Navbar: React.FC<NavbarProps> = () => {
             className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest rounded-lg shrink-0"
           >
             <img
-              src="/images/soothers-logo.png"
-              alt="Soothers Logo"
-              className="w-9 h-9 sm:w-10 sm:h-10 object-contain transition-transform duration-300 group-hover:scale-105"
+              src="/images/verdaura-logo.png"
+              alt="Verdaura Herbal Wellness Logo"
+              className="h-10 sm:h-12 w-auto object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-105"
             />
-            <span className="font-serif text-3xl sm:text-4xl tracking-tight text-[#2D3A2C] group-hover:text-forest transition-colors">
-              soothers
-            </span>
+            <div className="flex flex-col">
+              <span className="font-serif text-2xl sm:text-[28px] tracking-[0.14em] text-[#1E3A2F] group-hover:text-forest transition-colors uppercase font-medium leading-none">
+                Verdaura
+              </span>
+              <span className="text-[9px] sm:text-[10px] tracking-[0.24em] uppercase text-[#4D6453] font-sans font-medium mt-1">
+                Herbal Wellness
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Center Navigation Links (Single Line, No Wrap) */}
@@ -81,22 +86,19 @@ export const Navbar: React.FC<NavbarProps> = () => {
             ))}
           </nav>
 
-          {/* Desktop Right Utilities (Cart Bag & Shop Pill Button, Search removed) */}
-          <div className="hidden sm:flex items-center gap-3.5 xl:gap-4 shrink-0">
-            {/* Shopping Bag / Featured Drawer Icon */}
-            <a
-              href="/#featured"
-              className="p-2 rounded-full text-[#484238] hover:text-[#2D3A2C] hover:bg-sand-200/50 transition-all relative"
-              aria-label="View featured remedies"
-            >
-              <ShoppingBag className="w-5 h-5 stroke-[1.8]" />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-sunflower-500" />
-            </a>
-
-            {/* Shop Pill Button */}
+          {/* Desktop Right CTA: Shop Now Button */}
+          <div className="hidden md:flex items-center gap-3">
             <Link
               to="/products"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#3E4D3A] text-white font-sans font-medium text-xs sm:text-sm tracking-wide shadow-sm hover:bg-[#2E3C2B] hover:shadow-botanical hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#3E4D3A] text-white hover:bg-[#2D3A2C] transition-all text-xs font-sans font-medium shadow-sm hover:shadow-md hover:-translate-y-0.5"
+            >
+              <ShoppingBag className="w-3.5 h-3.5" />
+              <span>Shop All Products</span>
+            </Link>
+
+            <Link
+              to="/products"
+              className="lg:hidden inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-sand-300 text-[#2D3A2C] text-xs font-sans font-medium"
             >
               <span>Shop</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -108,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
             <a
               href={BUSINESS_INFO.phoneHref}
               className="p-2.5 rounded-full bg-sand-200/60 text-[#2D3A2C]"
-              aria-label="Call Soothers"
+              aria-label="Call Verdaura"
             >
               <Phone className="w-4 h-4" />
             </a>

@@ -66,7 +66,7 @@ export const ArchitectureMatrix: React.FC<ArchitectureMatrixProps> = ({
           System Architecture Matrix
         </h2>
         <p className="mt-2 text-sm text-slate-400">
-          A layered structural view of how each agent skill fits into the Soothers modern application stack.
+          A layered structural view of how each agent skill fits into the Verdaura modern application stack.
         </p>
       </div>
 

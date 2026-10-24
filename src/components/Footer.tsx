@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectSkillById }) => {
               <div className="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
                 <Sparkles className="w-4 h-4 text-emerald-400" />
               </div>
-              <span className="font-extrabold text-white text-lg tracking-tight">Soothers Skills Hub</span>
+              <span className="font-extrabold text-white text-lg tracking-tight">Verdaura Skills Hub</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-md">
               A comprehensive technical repository unifying 87 verified engineering playbooks, responsive design tokens, cloud edge microservices, and identity architectures for production systems.
@@ -87,7 +87,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectSkillById }) => {
         {/* Bottom bar */}
         <div className="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div className="flex items-center gap-2">
-            <span>© 2026 Soothers. Designed strictly adhering to Responsive Design Mastery & Clean Architecture.</span>
+            <span>© 2026 Verdaura. Designed strictly adhering to Responsive Design Mastery & Clean Architecture.</span>
           </div>
           <button
             onClick={scrollToTop}

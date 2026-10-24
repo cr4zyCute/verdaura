@@ -129,7 +129,7 @@ export const ParallaxShopCTA: React.FC<ParallaxShopCTAProps> = ({ className = ''
             <Link
               to="/products"
               className="inline-flex items-center gap-2.5 sm:gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-sunflower text-forest-950 font-sans font-bold text-sm sm:text-base tracking-wide shadow-md hover:bg-sunflower-400 hover:shadow-warm-glow hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sunflower-400/60 transition-all duration-300 min-h-[44px] min-w-[44px] group"
-              aria-label="Shop our products - Browse all Soothers remedies"
+              aria-label="Shop our products - Browse all Verdaura remedies"
             >
               <span>Shop Now</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-forest-950 transition-transform duration-300 group-hover:translate-x-1" />
