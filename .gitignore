@@ -1,8 +1,19 @@
+# Dependencies & Build Output
 node_modules
 dist
 dist-ssr
 *.local
-.agents/
 .DS_Store
+
+# Vercel & Vite Caches
 .vercel
 .vite
+
+# Second Brain, Knowledge Graph & Agent Skills
+.agents/
+graphify-out/
+Backend/
+Frontend/
+fullstack-backend-engineering/
+responsive-design-mastery/
+website-creation-design/
