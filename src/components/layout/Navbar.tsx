@@ -25,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
     { name: 'Herbals', href: '/products?category=herbals', isRouter: true },
     { name: 'Remedies', href: '/products?category=remedy-oils', isRouter: true },
     { name: 'Aromatherapy', href: '/products?category=essential-oil', isRouter: true },
-    { name: 'Services', href: '/#safety-formulas', isRouter: false },
+    { name: 'Our Story', href: '/#story', isRouter: false },
     { name: 'FAQ', href: '/#custom-formulations', isRouter: false },
     { name: 'Contact Us', href: '/#contact', isRouter: false },
   ];

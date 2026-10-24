@@ -8,7 +8,6 @@ import { FeaturedProducts } from '../components/home/FeaturedProducts';
 import { PhilosophyStory } from '../components/home/PhilosophyStory';
 // import { FormulationsShowcase } from '../components/home/FormulationsShowcase';
 // import { ServicesPreview } from '../components/home/ServicesPreview';
-import { SafetyAndFormulas } from '../components/home/SafetyAndFormulas';
 import { CustomFormulationsParallax } from '../components/home/CustomFormulationsParallax';
 import { ContactInquirySection } from '../components/home/ContactInquirySection';
 import { SalePromotionModal } from '../components/home/SalePromotionModal';
@@ -60,10 +59,7 @@ export const HomePage: React.FC = () => {
         {/* 8. Wellness Services & Classes (Commented out) */}
         {/* <ServicesPreview /> */}
 
-        {/* 9. Safety Precautions & Concentrated Formulas Guidance */}
-        <SafetyAndFormulas />
-
-        {/* 10. Custom Formulations Parallax CTA */}
+        {/* 7. Custom Formulations Parallax CTA */}
         <CustomFormulationsParallax />
 
         {/* 8. Visit, Phone Orders & Inquiry Form */}
