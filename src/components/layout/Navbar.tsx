@@ -46,18 +46,18 @@ export const Navbar: React.FC<NavbarProps> = () => {
           {/* Brand Logo & Wordmark */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest rounded-lg shrink-0"
+            className="flex items-center gap-2.5 sm:gap-3.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest rounded-lg shrink-0"
           >
             <img
-              src="/images/verdaura-logo.png"
-              alt="Verdaura Herbal Wellness Logo"
-              className="h-10 sm:h-12 w-auto object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-105"
+              src="/images/verdaura-mark.png"
+              alt="Verdaura Botanical Emblem"
+              className="h-10 w-10 sm:h-12 sm:w-12 object-contain transition-transform duration-300 group-hover:scale-105 shrink-0"
             />
-            <div className="flex flex-col">
-              <span className="font-serif text-2xl sm:text-[28px] tracking-[0.14em] text-[#1E3A2F] group-hover:text-forest transition-colors uppercase font-medium leading-none">
+            <div className="flex flex-col justify-center">
+              <span className="font-serif text-2xl sm:text-[27px] tracking-[0.16em] text-[#1E3A2F] group-hover:text-forest transition-colors uppercase font-medium leading-none">
                 Verdaura
               </span>
-              <span className="text-[9px] sm:text-[10px] tracking-[0.24em] uppercase text-[#4D6453] font-sans font-medium mt-1">
+              <span className="text-[9px] sm:text-[9.5px] tracking-[0.28em] uppercase text-[#4D6453] font-sans font-semibold mt-1">
                 Herbal Wellness
               </span>
             </div>
